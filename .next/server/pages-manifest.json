@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/onboarding/home-page": "pages/onboarding/home-page.js",
+  "/api/profile/[id]": "pages/api/profile/[id].js",
+  "/": "pages/index.js",
+  "/profile": "pages/profile.js",
+  "/api/logout": "pages/api/logout.js",
+  "/api/onboarding/login": "pages/api/onboarding/login.js"
+}
