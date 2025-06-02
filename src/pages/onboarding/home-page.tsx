@@ -96,7 +96,7 @@ export default function HomePage({
             <img
               src={nftUrl}
               alt="Your generated NFT"
-              className="w-full h-full object-cover rounded-3xl shadow-lg"
+              className="max-w-[400px] w-full h-full object-cover rounded-3xl shadow-lg"
             />
 
             <div className="absolute inset-0 bg-black bg-opacity-60 rounded-3xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -161,6 +161,12 @@ export default function HomePage({
         >
           Log Out
         </button>
+          <button
+            onClick={() => router.push(`/onboarding/addLoves?user_id=${userId}`)}
+            className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-4"
+          >
+            Edit Loves
+          </button>
       </div>
     </AuthenticatedLayout>
   )
@@ -184,7 +190,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     return {
       props: {
         userId: decoded.userId,
-        email: decoded.email,
       },
     }
   } catch {

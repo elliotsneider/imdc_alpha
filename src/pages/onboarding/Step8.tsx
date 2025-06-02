@@ -143,7 +143,13 @@ export default function Step8() {
                                >
                                  Continue and Generate Image
                                </button>
-                             )}
+                                  
+                             )}<button
+                         onClick={() => router.push(`/onboarding/addLoves?user_id=${userId}`)}
+                         className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 mt-4"
+                       >
+                         Edit Loves
+                       </button>
                            </>
       )}
 
@@ -159,7 +165,7 @@ export default function Step8() {
                         </button>
                         <button
                         onClick={async () => {
-                          await fetch(`/api/set-cookie?user_id=${user_id}`)
+                          await fetch(`/api/set-cookie?user_id=${profile.user_id}`)
                           router.push('/onboarding/home-page')
                         }}
                         className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"

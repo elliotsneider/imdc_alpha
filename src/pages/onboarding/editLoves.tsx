@@ -129,9 +129,8 @@ export default function Step3() {
           toast.error('Unexpected error occurred')
         }
       }
-
   const handleCancel = () => {
-    router.push({ pathname: '/onboarding/Step2', query: { user_id: userId } })
+    router.push({ pathname: '/onboarding/addLoves', query: { user_id: userId } })
   }
 
   if (!category || !userId) {

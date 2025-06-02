@@ -4,6 +4,7 @@ import { createClient } from '@supabase/supabase-js'
 import { Pool } from 'pg'
 import { randomUUID } from 'crypto'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL })
@@ -40,7 +41,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (error) throw error
       
     if (error) throw error
+        
+    const token = jwt.sign({ userId: user_id }, process.env.JWT_SECRET!, {
+      expiresIn: '7d',
+    })
 
+    res.setHeader(
+      'Set-Cookie',
+      `token=${token}; HttpOnly; Path=/; Max-Age=604800; SameSite=Lax`
+    )
+        
     return res.status(200).json({ id: user_id })
   } catch (err: any) {
     console.error(err)
